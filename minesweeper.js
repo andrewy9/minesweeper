@@ -22,6 +22,8 @@ function startGame() {
     board.cells[i].surroundingMines = countSurroundingMines(board.cells[i]);
   }
   lib.initBoard();
+  document.addEventListener('click', checkForWin);
+  document.addEventListener('contextmenu', checkForWin)
 }
 
 // Define this function to look for a win condition:
@@ -32,6 +34,32 @@ function checkForWin() {
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)s
   //   lib.displayMessage('You win!')
+
+  //for each of the cells in board
+  for (var k = 0; k < board.cells.length; k++) {
+    console.log("cell number: " + k)
+
+    if (board.cells[k].isMine) {
+      console.log("is a mine " + k)
+
+      if (board.cells[k].isMarked) {
+        console.log("is Marked " + k)
+      } else {
+        console.log("is NOT marked, therefor return " + k)
+        return;
+      }
+
+    } else {
+      console.log("is NOT a mine " + k)
+
+      if (board.cells[k].hidden) {
+        console.log("not all cells are revealed, there fore return" + k)
+        return;
+      } else {
+        console.log("this cell is revealed" + k)
+      }
+    }
+  } lib.displayMessage('You win!')
 }
 
 // Define this function to count the number of mines around the cell
@@ -46,7 +74,7 @@ function checkForWin() {
 function countSurroundingMines(cell) {
   var surrounding = lib.getSurroundingCells(cell.row, cell.col);
   var count = 0
-  // fir each the surrounding cells
+  // for each the surrounding cells
   for (var j = 0; j < surrounding.length; j++)
     // if isMine == true
     if (surrounding[j].isMine) {
