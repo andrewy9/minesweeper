@@ -83,3 +83,21 @@ function countSurroundingMines(cell) {
     }
   return count
 }
+
+var board = {}
+board.cells = []
+createBoard()
+
+function createBoard () {
+  for (var x = 0; x < 3; x ++){
+    for(var y = 0; y < 3; y++){
+    board.cells.push({row:x, col:y, isMine: true, hidden: true})
+    }
+  }
+  // for (var x = 0; x < arr.length; x++) {
+  //   for(var y = 0; y <arr[x].length; y++) {
+  //     board.cell[indx] = arr[y]
+  //   }
+  //   board[row] = x
+  // }
+}
