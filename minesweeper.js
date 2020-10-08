@@ -90,5 +90,4 @@ var resetButton = document.createElement("BUTTON")
 resetButton.innerHTML = "Reset"
 document.body.appendChild(resetButton)
 
-//reload page after reset
-resetButton.onclick = function () { location.reload() }
+//
