@@ -16,6 +16,7 @@ var board = {
 };
 
 function startGame() {
+
   // Don't remove this function call: it makes the game work!
   for (var i = 0; i < board.cells.length; i++) {
     //add "surroundingMines" property that equals to countSurroundingMines(board.cells[i]);
@@ -83,3 +84,11 @@ function countSurroundingMines(cell) {
     }
   return count
 }
+
+//create reset
+var resetButton = document.createElement("BUTTON")
+resetButton.innerHTML = "Reset"
+document.body.appendChild(resetButton)
+
+//reload page after reset
+resetButton.onclick = function () { location.reload() }
