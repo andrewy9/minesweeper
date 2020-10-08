@@ -5,13 +5,13 @@ var board = {}
 board.cells = []
 createBoard()
 
-function createBoard () {
-  var minePlacement = [true,false]
-  var random = function() {return Math.floor(Math.random()*2)}
+function createBoard() {
+  var minePlacement = [true, false]
+  var random = function () { return Math.floor(Math.random() * 2) }
 
-  for (var x = 0; x < 4; x ++){
-    for(var y = 0; y < 4; y++){
-    board.cells.push({row:x, col:y, isMine: minePlacement[random()], hidden: true})
+  for (var x = 0; x < 4; x++) {
+    for (var y = 0; y < 4; y++) {
+      board.cells.push({ row: x, col: y, isMine: minePlacement[random()], hidden: true })
     }
   }
 }
@@ -91,4 +91,5 @@ var resetButton = document.createElement("BUTTON")
 resetButton.innerHTML = "Reset"
 document.body.appendChild(resetButton)
 
-//
+//reset function
+resetButton.onclick = function () { location.reload() }
